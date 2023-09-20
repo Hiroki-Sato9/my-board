@@ -1,7 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+これは、学習用の掲示板アプリです。Railsで作られました。
+
 
 Things you may want to cover:
 
