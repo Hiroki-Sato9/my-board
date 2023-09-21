@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'user/sessions'
+  }
   get 'static_pages/home'
   get 'static_pages/help'
   get 'static_pages/about'
