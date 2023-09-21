@@ -7,7 +7,7 @@
 one:
   name: "one"
   email: "user@example.com"
-  encrypted_password: "password"
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
 # column: value
 #
 # two: {}
