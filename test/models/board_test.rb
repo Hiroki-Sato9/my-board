@@ -14,4 +14,10 @@ class BoardTest < ActiveSupport::TestCase
     invalid_board.user_id = nil
     refute invalid_board.valid?
   end
+
+  test 'title should be presence' do
+    invalid_board = @board.dup
+    invalid_board.title = nil
+    refute invalid_board.valid?
+  end
 end
