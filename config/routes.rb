@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     registrations: 'user/registrations'
   }
 
-  resource :boards
+  resources :boards
 
   get 'static_pages/home'
   get 'static_pages/help'
