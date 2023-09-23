@@ -10,13 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_22_084119) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_23_102251) do
   create_table "boards", force: :cascade do |t|
     t.text "title"
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_boards_on_user_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id", null: false
+    t.integer "board_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["board_id"], name: "index_posts_on_board_id"
+    t.index ["created_at"], name: "index_posts_on_created_at"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -33,4 +44,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_22_084119) do
   end
 
   add_foreign_key "boards", "users"
+  add_foreign_key "posts", "boards"
+  add_foreign_key "posts", "users"
 end
