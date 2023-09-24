@@ -27,7 +27,7 @@ class PostTest < ActiveSupport::TestCase
     refute @post.valid?
   end
 
-  test 'order should be most recent first' do
-    assert_equal posts(:most_rescent), Post.first
+  test 'order should be most recent last' do
+    assert_equal posts(:most_rescent), Post.last
   end
 end

@@ -16,7 +16,8 @@ class BoardsController < ApplicationController
   end
 
   def show
-
+    @board = Board.find(params[:id])
+    @post = @board.posts.build
   end
 
   private

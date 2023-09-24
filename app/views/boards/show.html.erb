@@ -1,0 +1,18 @@
+
+<h1><%= @board.title %></h1>
+
+<ol>
+  <% @board.posts.each do |post| %>
+    <li><%= post.content %></li>
+  <% end %>
+</ol>
+
+<%= form_with(model: @post) do |f| %>
+  <%= f.hidden_field :board_id, value: @board.id %>
+  
+  <div class="field">
+    <%= f.text_area :content %>
+  </div>
+
+  <%= f.submit "Post", class: "btn btn-primary" %>
+<% end %>
