@@ -1,11 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# one:
-#   content: MyText
-#   user: one
-#   board: one
+most_rescent:
+  content: "MyText"
+  user: one
+  board: one
+  created_at: <%= Time.zone.now %>
 
-# two:
-#   content: MyText
-#   user: two
-#   board: two
+post1:
+  content: MyText
+  user: one 
+  board: one
+  created_at: <%= 3.years.ago %>
