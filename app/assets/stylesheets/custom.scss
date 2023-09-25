@@ -13,3 +13,17 @@ header {
 #logo {
   font-size: large;
 }
+
+// posts
+
+.posts {
+  li {
+    width: 100%;
+    min-height: 50px;
+    // border: 1px solid black;
+    background-color: gainsboro;
+    padding: 5px;
+    margin-bottom: 10px;
+    font-size: larger;
+  }
+}

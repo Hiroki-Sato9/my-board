@@ -1,9 +1,11 @@
 
 <h1><%= @board.title %></h1>
 
-<ol>
+<ol class="posts">
   <% @board.posts.each do |post| %>
-    <li><%= post.content %></li>
+    <li id="post-<%= post.id %>">
+      <%= post.content %>
+    </li>
   <% end %>
 </ol>
 
