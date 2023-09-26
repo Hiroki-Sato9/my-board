@@ -16,6 +16,10 @@ class PostsController < ApplicationController
     redirect_to request.referer || root_url
   end
 
+  def comment
+    @post = Post.find(params[:id])
+  end
+
   private
   def post_params
     params.require(:post).permit(:content, :board_id)

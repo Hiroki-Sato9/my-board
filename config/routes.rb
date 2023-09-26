@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   }
 
   resources :boards
-  resources :posts
+  resources :posts do
+    member do
+      post 'comment'
+    end
+  end
+
 
   get 'static_pages/home'
   get 'static_pages/help'

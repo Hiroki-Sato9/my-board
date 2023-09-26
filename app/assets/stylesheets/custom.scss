@@ -18,6 +18,8 @@ header {
 
 .posts {
   li {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
     min-height: 50px;
     // border: 1px solid black;
@@ -25,5 +27,11 @@ header {
     padding: 5px;
     margin-bottom: 10px;
     font-size: larger;
+
+    .button_to {
+      display: inline;
+    }
   }
 }
+
+// ボード

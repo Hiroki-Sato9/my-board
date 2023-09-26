@@ -5,7 +5,7 @@
     <%= post.content %>
     <span>
       <%= button_to "delete", post_path(post), method: "delete", class: "btn" %>
-      <%= button_to "Add Comment", '#', class: "btn" %>
+      <%= button_to "Add Comment", comment_post_path, class: "btn" %>
     </span>
   </li>
   <% end %>
