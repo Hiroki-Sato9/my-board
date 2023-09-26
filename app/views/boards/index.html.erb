@@ -1,0 +1,6 @@
+
+<ul>
+  <% @boards.each do |board| %>
+    <li><%= link_to board.title, board, class: 'link' %></li>
+  <% end %>
+</ul>
