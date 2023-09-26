@@ -2,10 +2,17 @@
 <ol class="posts">
   <% @posts.each do |post| %>
   <li id="post-<%= post.id %>">
-    <%= post.content %>
+    <div class="inner">
+      <div class="content"><%= post.content %></div>
+      <div class="comment"><%= post.comment %></div>
+    </div>
+
     <span>
       <%= button_to "delete", post_path(post), method: "delete", class: "btn" %>
-      <%= button_to "Add Comment", comment_post_path, class: "btn" %>
+      <%= form_with(url: comment_post_path(post), scope: :posts) do |f| %>
+        <%= f.text_area :comment %>
+        <%= f.submit "Add Comment", class: "btn" %>
+      <% end %>
     </span>
   </li>
   <% end %>

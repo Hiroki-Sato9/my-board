@@ -5,6 +5,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:one)
     @board = boards(:one)
+    @post = posts(:post1)
     sign_in @user
   end
 
@@ -20,12 +21,17 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy posts" do
-    @post = posts(:post1)
-    get board_path(@board)
 
+    get board_path(@board)
     assert_template 'boards/show'
     assert_difference 'Post.count', -1 do
       delete post_path(@post)
     end
+  end
+
+  test "comment should create" do
+    post comment_post_path(@post), params: { posts: { comment: "hello" } }
+    @post.reload
+    assert_equal "hello", @post.comment
   end
 end

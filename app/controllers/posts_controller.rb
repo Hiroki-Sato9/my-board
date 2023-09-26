@@ -18,6 +18,10 @@ class PostsController < ApplicationController
 
   def comment
     @post = Post.find(params[:id])
+    @comment = params[:posts][:comment]
+    @post.update(comment: @comment)
+
+    redirect_to request.referer || root_url
   end
 
   private

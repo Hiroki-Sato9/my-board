@@ -20,14 +20,26 @@ header {
   li {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     min-height: 50px;
     // border: 1px solid black;
     background-color: gainsboro;
     padding: 5px;
     margin-bottom: 10px;
-    font-size: larger;
+    font-size: large;
 
+    .inner {
+      display: block;
+      .comment {
+        font-size: smaller;
+        color: red;
+      }
+    }
+    span {
+      display: flex;
+      align-items: center;
+    }
     .button_to {
       display: inline;
     }
