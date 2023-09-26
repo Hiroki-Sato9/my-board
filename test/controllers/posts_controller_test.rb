@@ -18,4 +18,14 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
       }
     end
   end
+
+  test "should destroy posts" do
+    @post = posts(:post1)
+    get board_path(@board)
+
+    assert_template 'boards/show'
+    assert_difference 'Post.count', -1 do
+      delete post_path(@post)
+    end
+  end
 end

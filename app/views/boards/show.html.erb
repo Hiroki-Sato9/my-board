@@ -2,11 +2,7 @@
 <h1><%= @board.title %></h1>
 
 <ol class="posts">
-  <% @board.posts.each do |post| %>
-    <li id="post-<%= post.id %>">
-      <%= post.content %>
-    </li>
-  <% end %>
+  <%= render @posts %>
 </ol>
 
 <%= form_with(model: @post) do |f| %>
