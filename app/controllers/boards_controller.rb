@@ -3,7 +3,8 @@ class BoardsController < ApplicationController
   before_action :start_user, only: [:edit]
 
   def index
-    @boards = Board.all
+    @activated_boards = Board.where(activated: true)
+    @unactivated_boards = Board.where(activated: false)
   end
 
   def new
@@ -34,6 +35,10 @@ class BoardsController < ApplicationController
   end
 
   def destroy
+    @board = Board.find(params[:id])
+    @board.close_board
+
+    redirect_to edit_board_path(@board)
   end
 
   private

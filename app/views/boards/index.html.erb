@@ -1,6 +1,16 @@
 
+<%= link_to 'New Board', new_board_path, class: 'btn btn-primary' %>
+
+<h2>投稿可能なボード</h2>
 <ul>
-  <% @boards.each do |board| %>
+  <% @activated_boards.each do |board| %>
+    <li><%= link_to board.title, board, class: 'link' %></li>
+  <% end %>
+</ul>
+
+<h2>アーカイブ</h2>
+<ul>
+  <% @unactivated_boards.each do |board| %>
     <li><%= link_to board.title, board, class: 'link' %></li>
   <% end %>
 </ul>

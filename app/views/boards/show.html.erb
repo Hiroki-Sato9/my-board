@@ -5,14 +5,27 @@
   <%= render @posts %>
 </ol>
 
-<%= form_with(model: @post) do |f| %>
-  <%= f.hidden_field :board_id, value: @board.id %>
-  
-  <div class="field">
-    <%= f.text_area :content %>
-  </div>
+<% if @board.activated%>
+  <%= form_with(model: @post) do |f| %>
+    <%= f.hidden_field :board_id, value: @board.id %>
+    
+    <div class="field">
+      <%= f.text_area :content %>
+    </div>
 
-  <%= f.submit "Post", class: "btn btn-primary" %>
+    <%= f.submit "Post", class: "btn btn-primary" %>
+  <% end %>
+
+  <%= link_to 'edit', edit_board_path(@board), class: 'link' %>
+<% else %>
+  <ol class="posts">
+  <% @posts.each do |post| %>
+  <li id="post-<%= post.id %>">
+    <div class="inner">
+      <div class="content"><%= post.content %></div>
+      <div class="comment"><%= post.comment %></div>
+    </div>
+  </li>
+  <% end %>
+  </ol>
 <% end %>
-
-<%= link_to 'edit', edit_board_path(@board), class: 'link' %>
