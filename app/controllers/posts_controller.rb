@@ -28,4 +28,5 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:content, :board_id)
   end
+
 end
