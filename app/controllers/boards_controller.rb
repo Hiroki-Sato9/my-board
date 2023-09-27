@@ -1,5 +1,6 @@
 class BoardsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destory]
+  before_action :start_user, only: [:edit]
 
   def index
     @boards = Board.all
@@ -38,5 +39,13 @@ class BoardsController < ApplicationController
   private
   def board_params
     params.require(:board).permit(:title)
+  end
+
+  def start_user
+    @board = Board.find(params[:id])
+    if @board.user_id != current_user.id
+      flash[:alert] = "You cannot edit this board."
+      redirect_to @board, status: :see_other
+    end
   end
 end
