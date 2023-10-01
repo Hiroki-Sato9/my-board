@@ -37,6 +37,7 @@ class BoardsController < ApplicationController
   def destroy
     @board = Board.find(params[:id])
     @board.close_board
+    flash[:notice] = 'This board is closed'
 
     redirect_to edit_board_path(@board)
   end
