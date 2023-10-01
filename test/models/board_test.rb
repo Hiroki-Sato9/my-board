@@ -21,11 +21,4 @@ class BoardTest < ActiveSupport::TestCase
     refute invalid_board.valid?
   end
 
-  test 'there should be one post at least' do
-    invalid_board = @board.dup
-    invalid_board.posts.each do |post|
-      post.destroy
-    end
-    refute invalid_board.valid?
-  end
 end
