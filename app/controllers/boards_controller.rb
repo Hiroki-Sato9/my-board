@@ -14,6 +14,7 @@ class BoardsController < ApplicationController
   def create
     @board = Board.new(title: board_params[:title], user_id: current_user.id)
     if @board.save
+      current_user.posts.create(content: board_params[:post], board_id: @board.id)
       flash[:notice] = "board created"
       redirect_to board_path(@board.id)
     else
@@ -44,7 +45,7 @@ class BoardsController < ApplicationController
 
   private
   def board_params
-    params.require(:board).permit(:title)
+    params.require(:board).permit(:title, :post)
   end
 
   def start_user
