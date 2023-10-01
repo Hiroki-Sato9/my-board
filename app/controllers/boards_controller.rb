@@ -13,9 +13,8 @@ class BoardsController < ApplicationController
 
   def create
     @board = Board.new(title: board_params[:title], user_id: current_user.id)
-    current_user.posts.create(content: board_params[:post], board_id: @board.id)
-    puts @board.errors.full_messages
     if @board.save
+      current_user.posts.create(content: board_params[:post], board_id: @board.id)
       flash[:notice] = "board created"
       redirect_to board_path(@board.id)
     else
